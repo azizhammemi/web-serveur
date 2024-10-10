@@ -1,0 +1,76 @@
+-------------- install liberay rapidjson -------------
+git clone https://github.com/Tencent/rapidjson.git
+cp -r rapidjson/include/rapidjson /path/to/your/project(win 5idma mata3ek)
+
+--------------excute.cpp   my file name (web_serveur.cpp)-----------------------------------------------
+ g++ web_serveur.cpp -o web_serveur -I/path/to/rapidjson/include
+
+------------------------grep port  if your port blocked do this  1103 numero to port-------------------------------------
+sudo netstat -tuln | grep :1103
+sudo kill $(sudo lsof -t -i:1103)
+
+---------------Cmake file --------------------
+sudo apt install cmake
+sudo apt install build
+sudo apt install build-essential g++ cmake ninja-build
+mkdir build
+cd build
+cmake ..
+make
+cmake --build .
+./web_serveur
+
+$ rm -rf build(remove folder build)
+
+
+
+----------install PHP-------------------
+1/sudo apt update
+sudo apt install php
+2/nano hello.php
+<?php
+echo "Hello, world!\n";
+?>
+3/php hello.php (excuter file php in terminal)
+--------------Apache-----------------
+sudo apt update
+sudo apt install apache2
+sudo apt install php libapache2-mod-php
+sudo systemctl restart apache2
+sudo nano /var/www/html/hello.php (this folder in \\wsl.localhost\Ubuntu-18.04\var\www\html)
+http://localhost/hello.php (tapez this url in your navigater after create file hello.php)
+
+
+
+
+--------------permission-----------------
+sudo usermod -aG www-data aziz
+sudo chown -R root:www-data /var/www/html
+sudo chmod -R 775 /var/www/html
+ls -ld /var/www/html
+drwxrwxr-x 3 root www-data 4096 Jun 20 19:01 /var/www/html
+
+---------------install python ------------------------
+# Update package list and install Python and pip
+sudo apt update
+sudo apt install python3 python3-pip -y
+
+# Install Tkinter
+sudo apt install python3-tk -y
+
+# Save your script as server_control.py and navigate to the directory where it's saved
+
+# Run the script 
+python3 file.py
+------------------------permission log fil --------------------------------
+aziz@DESKTOP-9PKB179:/var/www/html/site$ chmod 666 users.log
+aziz@DESKTOP-9PKB179:/var/www/html/site$ chmod 666 action_users.log
+
+---------------------------qt interface c++--------------------
+sudo apt update
+sudo apt install qtcreator qt5-default
+tisna3 program c++
+tisna3 file .pro ba3da:
+qmake GestionEtudiants.pro
+make
+./GestionEtudiants
